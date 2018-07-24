@@ -43,6 +43,8 @@
 			this.ToPCButton = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.PCSelectionBlockTotalLabel = new System.Windows.Forms.Label();
+			this.button3 = new System.Windows.Forms.Button();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -199,7 +201,7 @@
 			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button5.Location = new System.Drawing.Point(415, 26);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(157, 23);
+			this.button5.Size = new System.Drawing.Size(173, 23);
 			this.button5.TabIndex = 26;
 			this.button5.Text = "Select NDS rom directory";
 			this.button5.UseVisualStyleBackColor = true;
@@ -215,11 +217,27 @@
 			this.PCSelectionBlockTotalLabel.TabIndex = 27;
 			this.PCSelectionBlockTotalLabel.Text = "Selection block total: 0 blocks";
 			// 
+			// button3
+			// 
+			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button3.Location = new System.Drawing.Point(594, 26);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(168, 23);
+			this.button3.TabIndex = 28;
+			this.button3.Text = "Select .NDS to install";
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.InstallNDSFromFileSelect);
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(780, 453);
+			this.Controls.Add(this.button3);
 			this.Controls.Add(this.PCSelectionBlockTotalLabel);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.ToPCButton);
@@ -261,6 +279,8 @@
 		private System.Windows.Forms.ColumnHeader columnHeader1;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.Label PCSelectionBlockTotalLabel;
+		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 	}
 }
 

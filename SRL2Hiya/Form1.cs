@@ -196,7 +196,8 @@ namespace SRL2Hiya {
 					DSiWareTitle ware = (DSiWareTitle)item.Tag;
 
 					String onelineTitle = ware.title.Replace("\n", " ");
-					if (ware.blocks <= availableBlocks || MessageBox.Show(onelineTitle+ " cannot be installed onto the SD card. (WILL CRASH LAUNCHER!)\nContinue anyways?", "Warning!", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+					String messageString = onelineTitle.Replace("\0", "") + " cannot be installed onto the SD card. (WILL CRASH LAUNCHER!)\nContinue anyways?";
+					if (ware.blocks <= availableBlocks || MessageBox.Show(messageString, "Warning!", MessageBoxButtons.YesNo) == DialogResult.Yes) {
 						string folderName = comboBox1.Text + "title\\00030004\\" + ware.titleID.ToLower();
 						Directory.CreateDirectory(folderName);
 						Directory.CreateDirectory(folderName + "\\content");
@@ -279,6 +280,49 @@ namespace SRL2Hiya {
 				PCSelectionBlockTotalLabel.Text = "Selection block total: " + blockTotal + " blocks";
 			} else {
 				ToSDButton.Enabled = false;
+			}
+		}
+
+		private void InstallNDSFromFileSelect(object sender, EventArgs e) {
+			if (validDriveSelected) {
+				if (openFileDialog1.ShowDialog() == DialogResult.OK) {
+					if (CheckValidNDSDSiWareFile(openFileDialog1.FileName)) {
+						DSiWareTitle ware = new DSiWareTitle(openFileDialog1.FileName);
+
+						String onelineTitle = ware.title.Replace("\n", " ");
+						String messageString = onelineTitle.Replace("\0", "") + " cannot be installed onto the SD card. (WILL CRASH LAUNCHER!)\nContinue anyways?";
+						if (ware.blocks <= availableBlocks || MessageBox.Show(messageString, "Warning!", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+							string folderName = comboBox1.Text + "title\\00030004\\" + ware.titleID.ToLower();
+							Directory.CreateDirectory(folderName);
+							Directory.CreateDirectory(folderName + "\\content");
+							Directory.CreateDirectory(folderName + "\\data");
+
+							if (System.IO.File.Exists(folderName + "\\data\\public.sav"))
+								File.Delete(folderName + "\\data\\public.sav");
+							if (System.IO.File.Exists(folderName + "\\data\\private.sav"))
+								File.Delete(folderName + "\\data\\private.sav");
+							if (System.IO.File.Exists(folderName + "\\content\\00000000.app"))
+								File.Delete(folderName + "\\content\\00000000.app");
+
+
+							File.Copy(ware.NDSFile, folderName + "\\content\\00000000.app");
+							if (File.Exists(ware.NDSFile.Replace(".nds", ".pub"))) {
+								Console.WriteLine(ware.NDSFile.Replace(".nds", ".pub"));
+								File.Copy(ware.NDSFile.Replace(".nds", ".pub"), folderName + "\\data\\public.sav");
+							} else if (ware.publicSaveSize != 0)
+								File.WriteAllBytes(folderName + "\\data\\public.sav", new byte[ware.publicSaveSize]);
+							if (ware.privateSaveSize != 0)
+								File.WriteAllBytes(folderName + "\\data\\private.sav", new byte[ware.privateSaveSize]);
+							string path = Path.Combine(Path.GetTempPath(), "maketmd.exe");
+							File.WriteAllBytes(path, Resource1.maketmd);
+							Process.Start(path, folderName + "\\content\\00000000.app " + folderName + "\\content\\title.tmd");
+
+							RefreshSDList();
+						}
+					}
+				}
+			} else {
+				MessageBox.Show("Select HiyaCFW SDNAND drive first!");
 			}
 		}
 	}
