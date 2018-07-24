@@ -24,6 +24,7 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.label1 = new System.Windows.Forms.Label();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
 			this.DSiSDList = new System.Windows.Forms.ListView();
@@ -54,6 +55,8 @@
 			// 
 			// DSiSDList
 			// 
+			this.DSiSDList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
 			this.DSiSDList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Title,
             this.Blocks});
@@ -61,8 +64,10 @@
 			this.DSiSDList.LabelWrap = false;
 			this.DSiSDList.LargeImageList = this.icons;
 			this.DSiSDList.Location = new System.Drawing.Point(12, 55);
+			this.DSiSDList.MaximumSize = new System.Drawing.Size(2000, 2000);
+			this.DSiSDList.MinimumSize = new System.Drawing.Size(347, 357);
 			this.DSiSDList.Name = "DSiSDList";
-			this.DSiSDList.Size = new System.Drawing.Size(347, 344);
+			this.DSiSDList.Size = new System.Drawing.Size(347, 357);
 			this.DSiSDList.SmallImageList = this.icons;
 			this.DSiSDList.TabIndex = 17;
 			this.DSiSDList.TileSize = new System.Drawing.Size(184, 64);
@@ -107,8 +112,10 @@
 			// 
 			// label2
 			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(174, 407);
+			this.label2.Location = new System.Drawing.Point(93, 418);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(87, 13);
 			this.label2.TabIndex = 20;
@@ -117,21 +124,24 @@
 			// availableBlocksLabel
 			// 
 			this.availableBlocksLabel.AutoSize = true;
-			this.availableBlocksLabel.Location = new System.Drawing.Point(268, 407);
+			this.availableBlocksLabel.Location = new System.Drawing.Point(186, 418);
 			this.availableBlocksLabel.Name = "availableBlocksLabel";
 			this.availableBlocksLabel.Size = new System.Drawing.Size(0, 13);
 			this.availableBlocksLabel.TabIndex = 21;
 			// 
 			// PCDsiWareList
 			// 
+			this.PCDsiWareList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.PCDsiWareList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
 			this.PCDsiWareList.GridLines = true;
 			this.PCDsiWareList.LargeImageList = this.icons;
 			this.PCDsiWareList.Location = new System.Drawing.Point(415, 55);
+			this.PCDsiWareList.MinimumSize = new System.Drawing.Size(347, 357);
 			this.PCDsiWareList.Name = "PCDsiWareList";
-			this.PCDsiWareList.Size = new System.Drawing.Size(347, 344);
+			this.PCDsiWareList.Size = new System.Drawing.Size(347, 357);
 			this.PCDsiWareList.SmallImageList = this.icons;
 			this.PCDsiWareList.TabIndex = 22;
 			this.PCDsiWareList.UseCompatibleStateImageBehavior = false;
@@ -149,7 +159,9 @@
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(13, 402);
+			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.button2.Location = new System.Drawing.Point(12, 418);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 23;
@@ -159,6 +171,7 @@
 			// 
 			// ToSDButton
 			// 
+			this.ToSDButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.ToSDButton.Enabled = false;
 			this.ToSDButton.Location = new System.Drawing.Point(365, 55);
 			this.ToSDButton.Name = "ToSDButton";
@@ -170,6 +183,7 @@
 			// 
 			// ToPCButton
 			// 
+			this.ToPCButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.ToPCButton.Enabled = false;
 			this.ToPCButton.Location = new System.Drawing.Point(365, 84);
 			this.ToPCButton.Name = "ToPCButton";
@@ -181,6 +195,7 @@
 			// 
 			// button5
 			// 
+			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button5.Location = new System.Drawing.Point(415, 26);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(157, 23);
@@ -193,7 +208,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(780, 429);
+			this.ClientSize = new System.Drawing.Size(780, 453);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.ToPCButton);
 			this.Controls.Add(this.ToSDButton);
@@ -205,8 +220,9 @@
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.DSiSDList);
 			this.Controls.Add(this.label1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "NDS2HiyaCFW";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

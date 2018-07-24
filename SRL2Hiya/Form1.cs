@@ -234,9 +234,11 @@ namespace SRL2Hiya {
 				foreach (ListViewItem item in DSiSDList.SelectedItems) {
 					DSiWareTitle ware = (DSiWareTitle)item.Tag;
 
-					Console.WriteLine("Removing: " + comboBox1.Text + "title\\00030004\\" + ware.titleID.ToLower());
+					if (Directory.Exists(comboBox1.Text + "title\\00030004\\" + ware.titleID.ToLower())) {
+						Console.WriteLine("Removing: " + comboBox1.Text + "title\\00030004\\" + ware.titleID.ToLower());
 
-					Directory.Delete(comboBox1.Text + "title\\00030004\\" + ware.titleID.ToLower(), true);
+						Directory.Delete(comboBox1.Text + "title\\00030004\\" + ware.titleID.ToLower(), true);
+					}
 				}
 			}
 			RefreshSDList();
