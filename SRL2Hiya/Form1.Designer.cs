@@ -42,6 +42,7 @@
 			this.ToSDButton = new System.Windows.Forms.Button();
 			this.ToPCButton = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
+			this.PCSelectionBlockTotalLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -112,8 +113,7 @@
 			// 
 			// label2
 			// 
-			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(93, 418);
 			this.label2.Name = "label2";
@@ -123,6 +123,7 @@
 			// 
 			// availableBlocksLabel
 			// 
+			this.availableBlocksLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.availableBlocksLabel.AutoSize = true;
 			this.availableBlocksLabel.Location = new System.Drawing.Point(186, 418);
 			this.availableBlocksLabel.Name = "availableBlocksLabel";
@@ -204,11 +205,22 @@
 			this.button5.UseVisualStyleBackColor = true;
 			this.button5.Click += new System.EventHandler(this.SelectPCLocation);
 			// 
+			// PCSelectionBlockTotalLabel
+			// 
+			this.PCSelectionBlockTotalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.PCSelectionBlockTotalLabel.AutoSize = true;
+			this.PCSelectionBlockTotalLabel.Location = new System.Drawing.Point(412, 418);
+			this.PCSelectionBlockTotalLabel.Name = "PCSelectionBlockTotalLabel";
+			this.PCSelectionBlockTotalLabel.Size = new System.Drawing.Size(149, 13);
+			this.PCSelectionBlockTotalLabel.TabIndex = 27;
+			this.PCSelectionBlockTotalLabel.Text = "Selection block total: 0 blocks";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(780, 453);
+			this.Controls.Add(this.PCSelectionBlockTotalLabel);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.ToPCButton);
 			this.Controls.Add(this.ToSDButton);
@@ -221,6 +233,8 @@
 			this.Controls.Add(this.DSiSDList);
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximumSize = new System.Drawing.Size(796, 2000);
+			this.MinimumSize = new System.Drawing.Size(796, 492);
 			this.Name = "Form1";
 			this.Text = "NDS2HiyaCFW";
 			this.ResumeLayout(false);
@@ -246,6 +260,7 @@
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.ColumnHeader columnHeader1;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
+		private System.Windows.Forms.Label PCSelectionBlockTotalLabel;
 	}
 }
 

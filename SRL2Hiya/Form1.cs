@@ -67,7 +67,7 @@ namespace SRL2Hiya {
 
 		private void RefreshPCList() {
 			PCDsiWareList.Items.Clear();
-			var ext = new List<string> { ".app", ".nds" };
+			var ext = new List<string> { ".app", ".nds", ".srl" };
 			var myFiles = Directory.GetFiles(pcDirectory, "*.*", SearchOption.AllDirectories)
 				 .Where(s => ext.Contains(Path.GetExtension(s)));
 
@@ -272,6 +272,11 @@ namespace SRL2Hiya {
 		private void PCDsiWareList_SelectedIndexChanged(object sender, EventArgs e) {
 			if (PCDsiWareList.SelectedItems.Count > 0 && validDriveSelected) {
 				ToSDButton.Enabled = true;
+				int blockTotal = 0;
+				foreach (ListViewItem item in PCDsiWareList.SelectedItems) {
+					blockTotal += ((DSiWareTitle)item.Tag).blocks;
+				}
+				PCSelectionBlockTotalLabel.Text = "Selection block total: " + blockTotal + " blocks";
 			} else {
 				ToSDButton.Enabled = false;
 			}
